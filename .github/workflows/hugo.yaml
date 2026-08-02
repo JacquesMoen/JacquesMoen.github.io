@@ -71,9 +71,9 @@ jobs:
         run: |
           hugo --gc --minify --baseURL "https://example.github.io/" --destination "${RUNNER_TEMP}/site-root"
           hugo --gc --minify --baseURL "https://example.github.io/example-repo/" --destination "${RUNNER_TEMP}/site-project"
-          grep -R 'href="/archive/' "${RUNNER_TEMP}/site-root/index.html" -n
-          grep -R 'href="/example-repo/archive/' "${RUNNER_TEMP}/site-project/index.html" -n
-          grep -R 'src="/example-repo/img/home-bg.jpg"' "${RUNNER_TEMP}/site-project/post" -n
+          grep -R 'href=/archive/' "${RUNNER_TEMP}/site-root/index.html" -n
+          grep -R 'href=/example-repo/archive/' "${RUNNER_TEMP}/site-project/index.html" -n
+          grep -R 'src=/example-repo/img/home-bg.jpg' "${RUNNER_TEMP}/site-project/post" -n
           grep -R 'example-repo/css/custom.css' "${RUNNER_TEMP}/site-project" -n
 
       - name: Upload Pages artifact
