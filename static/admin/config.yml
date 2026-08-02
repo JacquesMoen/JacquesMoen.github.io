@@ -1,0 +1,108 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms@0.172.4/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: JacquesMoen/JacquesMoen.github.io
+  branch: main
+  auth_methods:
+    - token
+  commit_messages:
+    create: 'content: create {{collection}} "{{slug}}"'
+    update: 'content: update {{collection}} "{{slug}}"'
+    delete: 'content: delete {{collection}} "{{slug}}"'
+    uploadMedia: 'content: upload media "{{path}}"'
+    deleteMedia: 'content: delete media "{{path}}"'
+
+media_folder: static/img/uploads
+public_folder: /img/uploads
+
+media_libraries:
+  default:
+    config:
+      max_file_size: 1572864
+      slugify_filename: true
+
+collections:
+  - name: posts
+    label: 文章
+    label_singular: 文章
+    folder: content/post
+    create: true
+    delete: true
+    extension: md
+    format: yaml-frontmatter
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    summary: '{{title}} — {{date}}'
+    sortable_fields:
+      - title
+      - date
+    view_filters:
+      - label: 草稿
+        field: draft
+        pattern: true
+      - label: 已发布
+        field: draft
+        pattern: false
+    fields:
+      - label: 布局
+        name: layout
+        widget: hidden
+        default: post
+      - label: 标题
+        name: title
+        widget: string
+      - label: 副标题
+        name: subtitle
+        widget: string
+        required: false
+      - label: 发布时间
+        name: date
+        widget: datetime
+        format: YYYY-MM-DDTHH:mm:ssZ
+      - label: 作者
+        name: author
+        widget: string
+        required: false
+      - label: 头图
+        name: image
+        widget: hidden
+        default: img/home-bg.jpg
+      - label: 标签
+        name: tags
+        widget: list
+        required: false
+        default: []
+      - label: 分类
+        name: categories
+        widget: list
+        required: false
+        default: []
+      - label: 草稿
+        name: draft
+        widget: boolean
+        default: true
+      - label: 正文
+        name: body
+        widget: richtext
+
+  - name: pages
+    label: 页面
+    files:
+      - name: about
+        label: 关于
+        file: content/about/index.md
+        fields:
+          - label: 布局
+            name: layout
+            widget: hidden
+            default: page
+          - label: 标题
+            name: title
+            widget: string
+          - label: 多语言页面
+            name: multilingual
+            widget: hidden
+            default: false
+          - label: 正文
+            name: body
+            widget: richtext
