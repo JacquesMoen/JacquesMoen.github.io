@@ -1,0 +1,25 @@
+/* Site-level overrides only. Do not copy the theme stylesheet here. */
+
+.post-container img,
+.post-preview img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post-container table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.post-container pre {
+  overflow-x: auto;
+}
+
+[data-theme="dark"] .post-container img {
+  opacity: 0.92;
+}
+
+[data-theme="dark"] .post-container blockquote {
+  border-left-color: var(--color-primary);
+}
