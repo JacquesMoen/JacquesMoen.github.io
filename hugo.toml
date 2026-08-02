@@ -1,0 +1,66 @@
+baseURL = "https://JacquesMoen.github.io/"
+title = "个人博客"
+theme = "hugo-theme-cleanwhite"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh"
+hasCJKLanguage = true
+enableRobotsTXT = true
+summaryLength = 120
+timeZone = "Asia/Shanghai"
+
+[pagination]
+  pagerSize = 10
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[params]
+  header_image = "img/home-bg.jpg"
+  SEOTitle = "个人博客"
+  description = "记录思考、学习与生活。"
+  keyword = "个人博客, 随笔, 学习记录"
+  slogan = "记录、思考、分享"
+  image_404 = "img/home-bg.jpg"
+  title_404 = "页面不存在"
+  sidebar_about_description = "记录思考、学习与生活。"
+  sidebar_avatar = "img/avatar.png"
+  featured_tags = true
+  featured_condition_size = 1
+  about_me = true
+  friends = false
+  bookmarks = false
+  reward = false
+  page_view_counter = false
+  algolia_search = false
+  upstreamAttribution = true
+
+  # 夜间模式
+  auto_theme = false
+  dark_mode_toggle = true
+
+  custom_css = ["css/custom.css"]
+
+  [[params.additional_menus]]
+    title = "ARCHIVE"
+    href = "archive"
+
+  [[params.additional_menus]]
+    title = "ABOUT"
+    href = "about"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+  [markup.highlight]
+    style = "dracula"
+    noClasses = false
+
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
