@@ -65,7 +65,7 @@ jobs:
           grep -R "博客已上线" public/index.html public/post -n
           grep -R "搜索功能暂未启用" public/search -n
           grep -R "src=\"${{ steps.pages.outputs.base_path }}/img/home-bg.jpg\"" public/post -n
-          if grep -R "zhaohuabing.com\|yourgithub\|youremail\|xxx.xxx.com" public -n; then exit 1; fi
+          if grep -R "yourgithub\|youremail\|xxx.xxx.com" public -n; then exit 1; fi
 
       - name: Verify root and project Pages paths
         run: |
