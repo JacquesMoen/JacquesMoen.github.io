@@ -82,3 +82,17 @@ Sveltia 会把文章提交到 `content/post/`，把正文图片提交到 `static
 - 工作流：`.github/workflows/hugo.yaml`
 
 推送到 `main` 后，GitHub Actions 构建 Hugo、执行路径检查并把产物部署到 GitHub Pages。功能分支和 Pull Request 只执行构建与检查，不发布正式网站。
+
+## 密钥扫描
+
+仓库使用 `.github/workflows/secret-scan.yaml` 运行 TruffleHog OSS。
+
+- Pull Request：扫描 PR 新增的提交；
+- 推送 `main`：扫描本次推送；
+- 手动运行：扫描完整仓库历史；
+- 权限：仅 `contents: read`；
+- 不需要 PAT、仓库 Secret、Artifact 或本地安装。
+
+扫描失败时，不要在 Issue、PR 或聊天中复制疑似密钥。若确认泄露，应先撤销或轮换凭据，再删除文件并评估 Git 历史清理。删除文件本身不能使已经公开的凭据恢复安全。
+
+TruffleHog 版本更新必须使用独立分支和 PR，同时更新 Action 的完整 commit SHA、`version` 输入和版本注释，并重新执行 PR、`main` 和手动全历史扫描。
