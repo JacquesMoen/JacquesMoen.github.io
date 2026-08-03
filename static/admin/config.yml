@@ -19,7 +19,7 @@ public_folder: /img/uploads
 media_libraries:
   default:
     config:
-      max_file_size: 1572864
+      # max_file_size: 1572864  # disabled; default is unlimited
       slugify_filename: true
 
 collections:
