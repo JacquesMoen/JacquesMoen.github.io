@@ -1,5 +1,5 @@
 baseURL = "https://JacquesMoen.github.io/"
-title = "个人博客"
+title = "My Blog"
 theme = "hugo-theme-cleanwhite"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh"
@@ -16,7 +16,7 @@ timeZone = "Asia/Shanghai"
 
 [params]
   header_image = "img/home-bg.jpg"
-  SEOTitle = "个人博客"
+  SEOTitle = "My Blog"
   description = "记录思考、学习与生活。"
   keyword = "个人博客, 随笔, 学习记录"
   slogan = "记录、思考、分享"
