@@ -3,7 +3,7 @@ layout: post
 title: "「.env」定向代理法，让 Codex 稳定连接与手机远控"
 subtitle: "让 Codex 稳定走 Clash，同时保留 Chrome 原有代理路径"
 date: 2026-08-05 12:00:00 +0800
-author: ""
+author: "Jacques Moen"
 image: img/home-bg.jpg
 tags:
   - Codex
